@@ -46,8 +46,3 @@
 .message-user {
   @apply border border-userMessage text-userMessage;
 }
-
-/* Add styles for the input area */
-input::placeholder {
-  @apply text-aiMessage/50;
-}
