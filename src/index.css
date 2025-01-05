@@ -8,16 +8,35 @@
 @layer base {
   body {
     @apply bg-background text-white min-h-screen;
+    background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 }
 
 .chat-container {
   @apply w-full max-w-3xl mx-auto min-h-screen flex flex-col;
   max-width: 800px;
+  position: relative;
+}
+
+.chat-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .message {
   @apply w-full p-4 mb-4 bg-container animate-fade-in;
+  backdrop-filter: blur(5px);
 }
 
 .message-ai {
