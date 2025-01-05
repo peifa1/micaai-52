@@ -8,11 +8,6 @@
 @layer base {
   body {
     @apply bg-background text-white min-h-screen;
-    background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
   }
 }
 
@@ -20,6 +15,11 @@
   @apply w-full max-w-3xl mx-auto min-h-screen flex flex-col;
   max-width: 800px;
   position: relative;
+  background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .chat-container::before {
