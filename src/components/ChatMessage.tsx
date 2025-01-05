@@ -12,7 +12,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ isAI = false, message }) => {
         <span className="font-arcade text-sm">
           {isAI ? "😛" : "<"}
         </span>
-        <p className="font-sans">{message}</p>
+        <p className="font-arcade text-sm leading-relaxed">{message}</p>
       </div>
     </div>
   );
