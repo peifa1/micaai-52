@@ -14,9 +14,10 @@
 .chat-container {
   @apply w-full max-w-3xl mx-auto flex flex-col;
   max-width: 800px;
-  height: calc(100vh - 20%);
+  height: 100vh;
   position: relative;
-  margin: 10% 0;
+  top: 10;
+  bottom: 10;
   background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
   background-size: cover;
   background-position: center;
