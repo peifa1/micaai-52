@@ -15,9 +15,9 @@
   @apply w-full max-w-3xl mx-auto flex flex-col;
   max-width: 800px;
   height: 100vh;
+  padding-top: 5%;
+  padding-bottom: 5%;
   position: relative;
-  top: 10;
-  bottom: 10;
   background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
   background-size: cover;
   background-position: center;
@@ -25,6 +25,7 @@
   background-attachment: fixed;
   border-radius: 12px;
   box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
 
 .chat-container::before {
