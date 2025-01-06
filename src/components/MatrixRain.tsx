@@ -10,7 +10,6 @@ const MatrixRain: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size to match container
     const resize = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
@@ -18,29 +17,42 @@ const MatrixRain: React.FC = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Matrix characters
     const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()';
     const fontSize = 14;
     const columns = Math.floor(canvas.width / fontSize);
     const drops: number[] = new Array(columns).fill(0);
 
-    // Animation
     let frameId: number;
-    const draw = () => {
+    let lastFrame = 0;
+    const fps = 15; // Slower animation
+    const frameInterval = 1000 / fps;
+
+    const draw = (timestamp: number) => {
+      if (timestamp - lastFrame < frameInterval) {
+        frameId = requestAnimationFrame(draw);
+        return;
+      }
+      
+      lastFrame = timestamp;
+      
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      ctx.fillStyle = '#0F0';
+      ctx.fillStyle = '#7FDBFF'; // Cyan color to match MICA text
       ctx.font = `${fontSize}px "Press Start 2P"`;
       
-      for (let i = 0; i < drops.length; i++) {
+      // Only draw in the middle 60% of the canvas width
+      const startColumn = Math.floor(columns * 0.2);
+      const endColumn = Math.floor(columns * 0.8);
+      
+      for (let i = startColumn; i < endColumn; i++) {
         const char = chars[Math.floor(Math.random() * chars.length)];
         const x = i * fontSize;
         const y = drops[i] * fontSize;
         
         ctx.fillText(char, x, y);
         
-        if (y > canvas.height && Math.random() > 0.975) {
+        if (y > canvas.height && Math.random() > 0.99) {
           drops[i] = 0;
         }
         drops[i]++;
@@ -49,7 +61,7 @@ const MatrixRain: React.FC = () => {
       frameId = requestAnimationFrame(draw);
     };
 
-    draw();
+    frameId = requestAnimationFrame(draw);
 
     return () => {
       window.removeEventListener('resize', resize);
