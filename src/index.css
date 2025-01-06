@@ -12,8 +12,9 @@
 }
 
 .chat-container {
-  @apply w-full max-w-3xl mx-auto min-h-screen flex flex-col my-8;
+  @apply w-full max-w-3xl mx-auto flex flex-col my-8;
   max-width: 800px;
+  height: calc(100vh - 4rem); /* Subtract margins */
   position: relative;
   background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
   background-size: cover;
@@ -22,6 +23,7 @@
   background-attachment: fixed;
   border-radius: 12px;
   box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
 }
 
 .chat-container::before {
