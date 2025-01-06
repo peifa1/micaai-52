@@ -13,11 +13,11 @@ const Index = () => {
   };
 
   return (
-    <div className="chat-container relative">
+    <div className="chat-container p-4">
       <MatrixRain />
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col h-full">
         <Header />
-        <main className="flex-1 px-4 mb-20">
+        <main className="flex-1 overflow-y-auto px-4 pb-4">
           <ChatMessage
             isAI
             message="Hello! I'm MICA, your friendly AI assistant. How can I help you today?"
@@ -32,7 +32,7 @@ const Index = () => {
         </main>
         <form 
           onSubmit={handleSubmit}
-          className="fixed bottom-0 left-0 right-0 p-4 bg-black/50 backdrop-blur-sm"
+          className="p-4 bg-black/50 backdrop-blur-sm border-t border-userMessage"
         >
           <div className="max-w-3xl mx-auto flex gap-2">
             <input

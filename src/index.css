@@ -7,14 +7,14 @@
 
 @layer base {
   body {
-    @apply bg-background text-white min-h-screen;
+    @apply bg-background text-white min-h-screen overflow-hidden;
   }
 }
 
 .chat-container {
-  @apply w-full max-w-3xl mx-auto flex flex-col my-8;
+  @apply w-full max-w-3xl mx-auto flex flex-col;
   max-width: 800px;
-  height: calc(100vh - 4rem); /* Subtract margins */
+  height: 100vh;
   position: relative;
   background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
   background-size: cover;
@@ -23,7 +23,6 @@
   background-attachment: fixed;
   border-radius: 12px;
   box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
 }
 
 .chat-container::before {
