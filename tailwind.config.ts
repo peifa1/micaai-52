@@ -22,8 +22,8 @@ export default {
         background: "#000000",
         container: "#0000001a",
         heading: "#7FDBFF",
-        aiMessage: "#FF69B4",
-        userMessage: "#F08080",
+        aiMessage: "#7FDBFF", // Changed from pink to cyan
+        userMessage: "#FDE1D3", // Peach color for user messages
       },
       fontFamily: {
         arcade: ['"Press Start 2P"', "cursive"],

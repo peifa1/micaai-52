@@ -40,11 +40,11 @@ const Index = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message..."
-              className="flex-1 bg-container p-2 rounded border border-heading text-white font-arcade"
+              className="flex-1 bg-container p-2 rounded border border-userMessage text-white font-arcade"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-heading text-black rounded font-arcade hover:opacity-80 transition-opacity"
+              className="px-4 py-2 bg-container border border-userMessage text-userMessage rounded font-arcade hover:opacity-80 transition-opacity"
             >
               Send
             </button>

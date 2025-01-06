@@ -3,7 +3,7 @@ import AsciiTitle from "./AsciiTitle";
 
 const Header = () => {
   return (
-    <header className="w-full bg-container p-4 mb-8 relative">
+    <header className="w-full p-4 mb-8 relative z-10">
       <div className="flex justify-between items-center">
         <div className="flex gap-4">
           <a
@@ -12,7 +12,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="text-heading hover:opacity-80 transition-opacity"
           >
-            <Twitter size={22} /> {/* Increased size by 10% from 20 */}
+            <Twitter size={40} />
           </a>
           <a
             href="https://twitter.com"
@@ -20,11 +20,11 @@ const Header = () => {
             rel="noopener noreferrer"
             className="text-heading hover:opacity-80 transition-opacity"
           >
-            <Twitter size={22} />
+            <Twitter size={40} />
           </a>
         </div>
         <AsciiTitle />
-        <div className="w-[22px]"></div>
+        <div className="w-[40px]"></div>
       </div>
     </header>
   );

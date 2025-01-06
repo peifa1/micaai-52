@@ -12,7 +12,7 @@
 }
 
 .chat-container {
-  @apply w-full max-w-3xl mx-auto min-h-screen flex flex-col;
+  @apply w-full max-w-3xl mx-auto min-h-screen flex flex-col my-8;
   max-width: 800px;
   position: relative;
   background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
@@ -20,6 +20,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  border-radius: 12px;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .chat-container::before {
@@ -32,11 +34,13 @@
   background: rgba(0, 0, 0, 0.7);
   pointer-events: none;
   z-index: 1;
+  border-radius: 12px;
 }
 
 .message {
   @apply w-full p-4 mb-4 bg-container animate-fade-in relative z-10;
   backdrop-filter: blur(5px);
+  border-radius: 8px;
 }
 
 .message-ai {
@@ -48,5 +52,5 @@
 }
 
 .message p {
-  @apply font-arcade text-sm leading-relaxed;
+  @apply font-arcade text-xs leading-relaxed;
 }
