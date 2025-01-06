@@ -7,19 +7,25 @@
 
 @layer base {
   body {
-    @apply bg-background text-white min-h-screen;
-    background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    @apply bg-background text-white min-h-screen overflow-hidden;
   }
 }
 
 .chat-container {
-  @apply w-full max-w-3xl mx-auto min-h-screen flex flex-col;
+  @apply w-full max-w-3xl mx-auto flex flex-col;
   max-width: 800px;
+  height: 100vh;
+  padding-top: 5%;
+  padding-bottom: 5%;
   position: relative;
+  background-image: url('/lovable-uploads/a3e45ca6-c6c7-4b08-91fd-313bca3c1286.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-radius: 12px;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
 
 .chat-container::before {
@@ -31,12 +37,14 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   pointer-events: none;
-  z-index: -1;
+  z-index: 1;
+  border-radius: 12px;
 }
 
 .message {
-  @apply w-full p-4 mb-4 bg-container animate-fade-in;
+  @apply w-full p-4 mb-4 bg-container animate-fade-in relative z-10;
   backdrop-filter: blur(5px);
+  border-radius: 8px;
 }
 
 .message-ai {
@@ -45,4 +53,8 @@
 
 .message-user {
   @apply border border-userMessage text-userMessage;
+}
+
+.message p {
+  @apply font-arcade text-xs leading-relaxed;
 }
