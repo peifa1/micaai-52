@@ -1,8 +1,9 @@
 import { Twitter } from "lucide-react";
+import AsciiTitle from "./AsciiTitle";
 
 const Header = () => {
   return (
-    <header className="w-full bg-container p-4 mb-8">
+    <header className="w-full bg-container p-4 mb-8 relative">
       <div className="flex justify-between items-center">
         <div className="flex gap-4">
           <a
@@ -14,7 +15,7 @@ const Header = () => {
             <Twitter size={20} />
           </a>
         </div>
-        <h1 className="font-arcade text-heading text-2xl">MICA</h1>
+        <AsciiTitle />
         <div className="w-[20px]"></div>
       </div>
     </header>
