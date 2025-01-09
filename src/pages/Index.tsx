@@ -1,8 +1,11 @@
-import Header from "@/components/Header";
-import ChatMessage from "@/components/ChatMessage";
-import MatrixRain from "@/components/MatrixRain";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import Landing from "@/components/Landing";
+import AuthModal from "@/components/AuthModal";
+import ChatMessage from "@/components/ChatMessage";
+import ChatHeader from "@/components/ChatHeader";
+import MatrixRain from "@/components/MatrixRain";
 
 interface Message {
   role: 'user' | 'assistant';
@@ -10,19 +13,34 @@ interface Message {
 }
 
 const Index = () => {
+  const [showStartButton, setShowStartButton] = useState(true);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        setIsAuthenticated(true);
+        setShowAuthModal(false);
+        setShowStartButton(false);
+      } else if (event === 'SIGNED_OUT') {
+        setIsAuthenticated(false);
+        setShowAuthModal(true);
+        setShowStartButton(false);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleStartClick = () => {
+    setShowStartButton(false);
+    setShowAuthModal(true);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -175,11 +193,19 @@ const Index = () => {
     }
   };
 
+  if (showStartButton) {
+    return <Landing onStartClick={handleStartClick} />;
+  }
+
+  if (!isAuthenticated) {
+    return <AuthModal isOpen={showAuthModal} />;
+  }
+
   return (
     <div className="chat-container p-4">
       <MatrixRain />
       <div className="relative z-10 flex flex-col h-full">
-        <Header />
+        <ChatHeader />
         <main className="flex-1 overflow-y-auto px-4 pb-4">
           {messages.map((message, index) => (
             <ChatMessage
@@ -194,7 +220,6 @@ const Index = () => {
               message="Wait a second pwease. . ."
             />
           )}
-          <div ref={messagesEndRef} />
         </main>
         <form 
           onSubmit={handleSubmit}
