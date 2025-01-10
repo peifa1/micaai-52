@@ -8,7 +8,7 @@
 @layer base {
   body {
     @apply bg-background text-white min-h-screen overflow-hidden flex items-center justify-center;
-    background-image: url('/lovable-uploads/a89dd088-760b-4f17-97d5-d41ee8f07816.png');
+    background-image: url('/lovable-uploads/f1327413-f1de-4775-af3f-063bae741fa5.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@
   background-attachment: fixed;
   border-radius: 12px;
   animation: container-glitch 11s infinite;
-  box-shadow: 12px 12px 20px rgba(255, 192, 203, 0.5); /* Updated shadow to be more blurry */
+  box-shadow: 12px 12px 20px rgba(255, 192, 203, 0.5);
 }
 
 .chat-container::before {
@@ -38,14 +38,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   pointer-events: none;
   z-index: 1;
   border-radius: 12px;
   mix-blend-mode: overlay;
 }
 
-/* Noise overlay */
 .chat-container::after {
   content: '';
   position: absolute;
@@ -64,11 +63,13 @@
 @keyframes container-glitch {
   0%, 93% {
     transform: none;
+    opacity: 1;
     filter: none;
     clip-path: none;
   }
   93.5% {
     transform: translate(2px, 0) skew(2deg);
+    opacity: 0.95;
     filter: 
       drop-shadow(2px 0 #ff00ea) 
       drop-shadow(-2px 0 #00ffff)
@@ -77,6 +78,7 @@
   }
   94% {
     transform: translate(-2px, 0) skew(-2deg);
+    opacity: 0.9;
     filter: 
       drop-shadow(3px 0 #ff0000) 
       drop-shadow(-3px 0 #00ffff)
@@ -86,6 +88,7 @@
   }
   94.5% {
     transform: translate(1px, 0) skew(1deg);
+    opacity: 0.95;
     filter: 
       drop-shadow(4px 0 #7FDBFF) 
       drop-shadow(-4px 0 #ff00ea)
@@ -95,30 +98,29 @@
   }
   95% {
     transform: translate(-1px, 0) skew(-1deg);
+    opacity: 0.9;
     filter: 
       drop-shadow(-3px 0 #00ffff) 
       drop-shadow(3px 0 #ff0000)
       saturate(200%)
       contrast(150%);
-    clip-path: inset(5% 5% 5% 5%);
   }
   95.5% {
     transform: translate(1px, 0);
+    opacity: 0.95;
     filter: 
       drop-shadow(2px 0 #ff00ea) 
       drop-shadow(-2px 0 #7FDBFF)
       hue-rotate(45deg)
       brightness(150%);
-    clip-path: inset(2% 2% 2% 2%);
   }
   96% {
     transform: none;
+    opacity: 1;
     filter: 
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='pixelate'%3E%3CfeFlood x='4' y='4' height='2' width='2'/%3E%3CfeComposite/%3E%3CfeTile/%3E%3CfeComposite/%3E%3C/filter%3E%3C/svg%3E#pixelate")
       saturate(130%)
       contrast(110%)
       brightness(110%);
-    clip-path: none;
   }
 }
 
