@@ -28,9 +28,9 @@
   background-attachment: fixed;
   border-radius: 12px;
   animation: container-glitch 11s infinite;
+  box-shadow: 8px 8px 0 rgba(255, 192, 203, 0.5); /* Added pink shadow */
 }
 
-/* Glitch container and pseudo-elements */
 .chat-container::before {
   content: '';
   position: absolute;
