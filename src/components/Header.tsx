@@ -16,7 +16,7 @@ const Header = () => {
               alt="X Logo" 
               width={48} 
               height={30}
-              className="w-[35px] h-[35px]"
+              className="w-[48px] h-[35px]" // Updated width here
             />
           </a>
         </div>

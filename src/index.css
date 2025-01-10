@@ -8,6 +8,11 @@
 @layer base {
   body {
     @apply bg-background text-white min-h-screen overflow-hidden flex items-center justify-center;
+    background-image: url('/lovable-uploads/a89dd088-760b-4f17-97d5-d41ee8f07816.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 }
 
