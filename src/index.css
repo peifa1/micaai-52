@@ -28,7 +28,7 @@
   background-attachment: fixed;
   border-radius: 12px;
   animation: container-glitch 11s infinite;
-  box-shadow: 8px 8px 0 rgba(255, 192, 203, 0.5); /* Added pink shadow */
+  box-shadow: 12px 12px 20px rgba(255, 192, 203, 0.5); /* Updated shadow to be more blurry */
 }
 
 .chat-container::before {
